@@ -1,4 +1,9 @@
+using Microsoft.EntityFrameworkCore;
+using Recetario.Models;
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContext<BdrecetasContext>(options =>
+options.UseSqlServer(builder.Configuration.GetConnectionString("ConexionDB")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
